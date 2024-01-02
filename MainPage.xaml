@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notebook.MainPage">
+    <ScrollView>
+        <AbsoluteLayout>
+            <!-- Notes list -->
+            <CollectionView 
+                x:Name="NotesCollectionView"
+                AbsoluteLayout.LayoutFlags="All" 
+                AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#0000ff" CornerRadius="10" Padding="10" Margin="5">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnNoteTapped"
+                                    CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                            <StackLayout>
+                                <Label 
+                                    Style="{StaticResource SubHeadline}" 
+                                    HorizontalOptions="Start" TextColor="#ffffff" 
+                                    Text="{Binding Name}" />
+                                <Label 
+                                    TextColor="#00f0ff" 
+                                    Text="{Binding ModificationDate}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Button to add notes -->
+            <Button Text="+"
+                    Clicked="OnAddItemClicked"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    Margin="10"
+                    AbsoluteLayout.LayoutBounds="1,1,-1,-1" />
+        </AbsoluteLayout>
+    </ScrollView>
+</ContentPage>
