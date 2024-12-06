@@ -4,7 +4,6 @@
              x:Class="Notebook.MainPage">
     <ScrollView>
         <AbsoluteLayout>
-            <!-- Notes list -->
             <CollectionView 
                 x:Name="NotesCollectionView"
                 AbsoluteLayout.LayoutFlags="All" 
@@ -30,8 +29,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
-            <!-- Button to add notes -->
             <Button Text="+"
                     Clicked="OnAddItemClicked"
                     AbsoluteLayout.LayoutFlags="PositionProportional"
